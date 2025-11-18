@@ -11,9 +11,18 @@ class barang extends Model
 
     protected $fillable = [
         'kategoribarang',
+        'supplierbarang',
         'namabarang',
         'hargabarang',
         'jumlahbarang',
         'fotobarang'
     ];
+    public function category()
+    {
+        return $this->belongsTo(category::class, 'kategoribarang');
+    }
+    public function supplier()
+    {
+        return $this->belongsTo(supplier::class, 'supplierbarang');
+    }
 }
