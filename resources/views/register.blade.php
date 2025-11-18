@@ -29,7 +29,15 @@
               <br>
                   <input type="password" class="form-control" name="password" placeholder="Password">
               <br>
-                    <input type="number" class="form-control" name="nomorhp" placeholder="Phone Number">
+                    <input
+                      type="tel"
+                      class="form-control"
+                      name="nomorhp"
+                      placeholder="Phone Number"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      pattern="^[0-9+\s-]{8,15}$"
+                      title="Hanya masukkan angka, spasi, tanda + atau - (8-15 karakter)">
               <br>
                 @if($errors->any())
                 {{$errors->first()}}

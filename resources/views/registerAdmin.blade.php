@@ -33,7 +33,17 @@
                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <div class="mb-3">
-                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      name="nomorhp"
+                      aria-describedby="emailHelp"
+                      placeholder="Phone Number"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      pattern="^[0-9+\s-]{8,15}$"
+                      title="Hanya masukkan angka, spasi, tanda + atau - (8-15 karakter)">
                 </div>
                 <div class="d-grid gap-2 col-4 mx-auto">
                     <a href="{{route('login')}}"><button type="button" class="btn btn-outline-primary">Login</button></a>

@@ -32,7 +32,7 @@ class UserController extends Controller
     }
 
     public function login(){
-        return view('/viewuser');
+        return view('welcome');
     }
 
     public function logedin(Request $request){
