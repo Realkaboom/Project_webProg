@@ -17,36 +17,35 @@
         </style>
     </head>
     <body>
-      <div class="min-vh-100 d-flex justify-content-center align-items-center container">
-            <form action="{{route('logedin')}}" method="POST" class="form-inline">
+      <div class="min-vh-100 d-flex justify-content-center align-items-center container ">
+            <form action="{{route('registered')}}" method="POST" class="form-inline">
               @csrf
-                  <label class="form-label">Login</label>
-                  <input type="text" class="form-control" name="email" placeholder="Email address">
+              <label class="form-label">Register</label>
               <br>
-                  <input type="password" class="form-control" name="password" id="inputPassword5" placeholder="Password">
+                    <input type="text" class="form-control" name="nama" placeholder="Name">
+                    {{-- <div class="form-text">We'll never share your email with anyone else.</div> --}}
               <br>
+                  <input type="email" class="form-control" name="email" placeholder="Email address">
+              <br>
+                  <input type="password" class="form-control" name="password" placeholder="Password">
+              <br>
+                    <input type="number" class="form-control" name="nomorhp" placeholder="Phone Number">
+              <br>
+                @if($errors->any())
+                {{$errors->first()}}
+                @endif
 
-            <div class="row mb-4">
-              <div class="text-center col">
-                <a href="/registerAdmin">An Admin? Click here</a>
-              </div>
-            </div>
+                @if(session()->has('success'))
+                {{session()->get('success')}}
+                @endif
 
-            @if($errors->any())
-              {{$errors->first()}}
-            @endif
+                <button type="submit" class="btn btn-outline-primary d-grid gap-2 col-6 mx-auto">Register</button>
 
-            @if(session()->has('success'))
-              {{session()->get('success')}}
-            @endif
-
-            
-            <button type="submit" class="btn btn-outline-primary d-grid gap-2 col-4 mx-auto">Login</button>
-            <div>
-              <p>Not a member? <a href="{{route('register')}}">Register Here</a></p>
-            </div>
-            </form>           
-    </div>
+                <div class="justify-content-center">
+                  <p><a href="/">Return To Login?</a></p>
+                </div>
+              </form>
+      </div>
     </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

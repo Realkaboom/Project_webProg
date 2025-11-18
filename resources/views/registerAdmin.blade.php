@@ -17,36 +17,29 @@
         </style>
     </head>
     <body>
-      <div class="min-vh-100 d-flex justify-content-center align-items-center container">
-            <form action="{{route('logedin')}}" method="POST" class="form-inline">
-              @csrf
-                  <label class="form-label">Login</label>
-                  <input type="text" class="form-control" name="email" placeholder="Email address">
-              <br>
-                  <input type="password" class="form-control" name="password" id="inputPassword5" placeholder="Password">
-              <br>
-
-            <div class="row mb-4">
-              <div class="text-center col">
-                <a href="/registerAdmin">An Admin? Click here</a>
-              </div>
-            </div>
-
-            @if($errors->any())
-              {{$errors->first()}}
-            @endif
-
-            @if(session()->has('success'))
-              {{session()->get('success')}}
-            @endif
-
-            
-            <button type="submit" class="btn btn-outline-primary d-grid gap-2 col-4 mx-auto">Login</button>
-            <div>
-              <p>Not a member? <a href="{{route('register')}}">Register Here</a></p>
-            </div>
-            </form>           
-    </div>
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+            <form>
+              <label class="form-label">Admin</label>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                  </div>
+                  <div class="mb-3">
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID Admin">
+                  </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone Number">
+                </div>
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <a href="{{route('login')}}"><button type="button" class="btn btn-outline-primary">Login</button></a>
+                </div>
+              </form>
+        </div>
     </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
