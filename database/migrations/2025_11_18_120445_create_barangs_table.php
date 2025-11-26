@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
-            $table->id('kategoribarang');
             $table->foreignId('kategoribarang')->constrained('categories')->onDelete('cascade');
-            $table->id('supplierbarang');
             $table->foreignId('supplierbarang')->constrained('suppliers')->onDelete('cascade');
             $table->string('namabarang');
             $table->unsignedBigInteger('hargabarang');

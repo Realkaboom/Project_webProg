@@ -27,6 +27,7 @@ class UserController extends Controller
             'email'=> $request->email,
             'password'=> Hash::make($request->password),
             'nomorhp'=> $request->nomorhp,
+            'isAdmin' => false,
         ]);
         return redirect('/')->with('success','user registered');
     }
@@ -41,7 +42,9 @@ class UserController extends Controller
         if($user && Hash::check($request->password, $user->password)){
             Auth::login($user);
             if(Auth::check()){
-                return redirect('/viewuser');
+                return Auth::user()->isAdmin
+                    ? redirect()->route('viewadmin')
+                    : redirect()->route('viewall');
             }else{
                 return redirect('/');     
             }

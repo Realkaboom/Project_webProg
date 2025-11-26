@@ -21,6 +21,7 @@ class BarangController extends Controller
             'fotobarang' => 'mimes:jpg, jpeg, png'
         ]);
 
+        $image_name = null;
         if($request->hasFile('fotobarang')){
             $image_path = 'public/fotobarang';
             $image = $request->file('fotobarang');
@@ -31,6 +32,7 @@ class BarangController extends Controller
 
         barang::create([
             'kategoribarang' => $request->kategoribarang,
+            'supplierbarang' => $request->supplierbarang,
             'namabarang' => $request->namabarang,
             'hargabarang'=> $request->hargabarang,
             'jumlahbarang'=> $request->jumlahbarang,
@@ -68,10 +70,13 @@ class BarangController extends Controller
             $image = $request->file('fotobarang');
             $image_name = str::random(5).'_'.$image->getClientOriginalName();
             $image->storeAs($image_path, $image_name);
+        } else {
+            $image_name = $thing->fotobarang;
         }
 
         $thing->update([
             'kategoribarang' => $request->kategoribarang,
+            'supplierbarang' => $request->supplierbarang,
             'namabarang' => $request->namabarang,
             'hargabarang'=> $request->hargabarang,
             'jumlahbarang'=> $request->jumlahbarang,

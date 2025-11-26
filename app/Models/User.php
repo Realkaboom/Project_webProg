@@ -42,5 +42,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'isAdmin' => 'boolean',
     ];
+
+    public function requests()
+    {
+        return $this->hasMany(RequestData::class, 'user_id');
+    }
+
+    public function requestLogs()
+    {
+        return $this->hasMany(RequestLog::class, 'user_id');
+    }
 }

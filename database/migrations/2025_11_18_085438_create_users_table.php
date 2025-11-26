@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email')->unique();
-            $table->integer('isAdmin')->default('1');
+            $table->boolean('isAdmin')->default(false);
             $table->string('password');
             $table->unsignedBigInteger('nomorhp');
             $table->rememberToken();
