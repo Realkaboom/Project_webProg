@@ -22,34 +22,62 @@
         <form method="POST" action="{{route('edited', ['id' => $semuabarang->id])}}" class="content" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">kategori barang</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" name="kategoribarang" aria-describedby="inputGroup-sizing-default" value={{$semuabarang->kategoribarang}}>
+                <select class="form-control" name="kategoribarang" aria-describedby="inputGroup-sizing-default">
+                    <option value="">-- pilih kategori --</option>
+                    @foreach($categories as $cat)
+                        <option value="{{ $cat->id }}" @if($semuabarang->kategoribarang == $cat->id) selected @endif>{{ $cat->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-                
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">supplier</span>
+                <select class="form-control" name="supplierbarang" aria-describedby="inputGroup-sizing-default">
+                    <option value="">-- pilih supplier --</option>
+                    @foreach($suppliers as $sup)
+                        <option value="{{ $sup->id }}" @if($semuabarang->supplierbarang == $sup->id) selected @endif>{{ $sup->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">nama barang</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" name="namabarang" aria-describedby="inputGroup-sizing-default" value={{$semuabarang->namabarang}}>
+                <input type="text" class="form-control" aria-label="Sizing example input" name="namabarang" aria-describedby="inputGroup-sizing-default" value="{{ $semuabarang->namabarang }}">
             </div>
     
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">harga barang (Rp.)</span>
-                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="hargabarang" value={{$semuabarang->hargabarang}}>
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="hargabarang" value="{{ $semuabarang->hargabarang }}">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">jumlah barang</span>
-                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="jumlahbarang" value={{$semuabarang->jumlahbarang}}>
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="jumlahbarang" value="{{ $semuabarang->jumlahbarang }}">
             </div>
     
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">foto barang</span>
-                <input type="file" class="form-control" name="fotobarang" value={{$semuabarang->fotobarang}}>
+                <input type="file" class="form-control" name="fotobarang">
             </div>
 
-            <button type="submit" class="btn btn-outline-success">Edit</button>  
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success" style="background-color:#198754;border-color:#198754;color:#fff;">Simpan</button>
+                <a href="{{ route('viewadmin') }}" class="btn btn-secondary">Batal</a>
+            </div>
+        </form>
         </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

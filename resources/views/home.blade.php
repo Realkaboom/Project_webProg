@@ -24,10 +24,36 @@
         
         <form method="POST" action="{{route('create')}}" class="content" enctype="multipart/form-data">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <p>Add barang</p>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">kategori barang</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" name="kategoribarang" aria-describedby="inputGroup-sizing-default">
+                <select class="form-control" name="kategoribarang" aria-describedby="inputGroup-sizing-default">
+                    <option value="">-- pilih kategori --</option>
+                    @foreach($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    @endforeach
+                </select>
+                <a class="btn btn-outline-primary ms-2" href="{{ route('categories.create') }}">+ Kategori</a>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">supplier</span>
+                <select class="form-control" name="supplierbarang" aria-describedby="inputGroup-sizing-default">
+                    <option value="">-- pilih supplier --</option>
+                    @foreach($suppliers as $sup)
+                        <option value="{{ $sup->id }}">{{ $sup->name }}</option>
+                    @endforeach
+                </select>
+                <a class="btn btn-outline-primary ms-2" href="{{ route('suppliers.create') }}">+ Supplier</a>
             </div>
 
             <div class="input-group mb-3">

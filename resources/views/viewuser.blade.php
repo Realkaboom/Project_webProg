@@ -28,14 +28,14 @@
                 <li class="nav-item"><a class="nav-link" href="{{route('viewadmin')}}">Admin Mode</a></li>
                 
             </ul>
-            <form method="POST" action="{{route('Logout')}}">
-                    @csrf
-                    <a href="route('Logout')"
+            <form method="POST" action="{{route('logout')}}">
+                @csrf
+                    <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </a>
-            </form>
+                </form>
         </div>
     </div>
 </nav>

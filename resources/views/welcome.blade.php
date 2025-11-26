@@ -28,7 +28,6 @@
 
             <div class="row mb-4">
               <div class="text-center col">
-                <a href="/registerAdmin">An Admin? Click here</a>
               </div>
             </div>
 

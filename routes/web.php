@@ -38,13 +38,13 @@ Route::post('/logout', [UserController::class, 'Logout'])
     ->name('logout')
     ->middleware('auth');
 
-Route::middleware(['auth', 'worker'])->group(function () {
+Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\WorkerOnly::class])->group(function () {
     Route::controller(BarangController::class)->group(function () {
         Route::get('/viewuser', 'view')->name('viewall');
     });
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\AdminOnly::class])->group(function () {
     Route::controller(BarangController::class)->group(function () {
         Route::get('/viewadmin', 'viewadmin')->name('viewadmin');
     });

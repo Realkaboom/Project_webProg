@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\barang;
+use App\Models\category;
+use App\Models\supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -12,13 +14,20 @@ use Illuminate\Support\Facades\Schema;
 class BarangController extends Controller
 {
     public function viewcreatebarang(){
-        return view('home');
+        $categories = category::all();
+        $suppliers = supplier::all();
+        return view('home', compact('categories', 'suppliers'));
     }
     
     public function createbarang(request $request){
 
         $request->validate([
-            'fotobarang' => 'mimes:jpg, jpeg, png'
+            'kategoribarang' => 'required|integer|exists:categories,id',
+            'supplierbarang' => 'required|integer|exists:suppliers,id',
+            'namabarang' => 'required|string',
+            'hargabarang' => 'required|integer|min:0',
+            'jumlahbarang' => 'required|integer|min:0',
+            'fotobarang' => 'nullable|mimes:jpg,jpeg,png'
         ]);
 
         $image_name = null;
@@ -42,25 +51,36 @@ class BarangController extends Controller
     }
 
     public function view(){
-        $thing = barang::all();
+        $thing = barang::with(['category', 'supplier'])->get();
         return view('viewuser')->with('semuabarang', $thing);
     }
 
     public function viewadmin(){
-        $thing = barang::all();
+        $thing = barang::with(['category', 'supplier'])->get();
         return view('/viewadmin')->with('semuabarang', $thing);
     }
 
     public function editform($id){
         $thing = barang::findOrFail($id);
-        return view('edit')->with('semuabarang', $thing);
+        $categories = category::all();
+        $suppliers = supplier::all();
+        return view('edit', [
+            'semuabarang' => $thing,
+            'categories' => $categories,
+            'suppliers' => $suppliers,
+        ]);
     }
 
     public function edit($id, Request $request){
         $thing = barang::findOrFail($id);
 
         $request->validate([
-            'fotobarang' => 'mimes:jpg, jpeg, png'
+            'kategoribarang' => 'required|integer|exists:categories,id',
+            'supplierbarang' => 'required|integer|exists:suppliers,id',
+            'namabarang' => 'required|string',
+            'hargabarang' => 'required|integer|min:0',
+            'jumlahbarang' => 'required|integer|min:0',
+            'fotobarang' => 'nullable|mimes:jpg,jpeg,png'
         ]);
 
         if($request->hasFile('fotobarang')){
