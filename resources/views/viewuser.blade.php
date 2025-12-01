@@ -25,8 +25,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('viewall')}}">Home</a></li>
-                
             </ul>
+            @if (Route::has('requests.create'))
+                <div class="d-flex me-3">
+                    <a href="{{ route('requests.create') }}" class="btn btn-outline-primary btn-sm">Buat Permintaan</a>
+                    @if (Route::has('requests.my'))
+                        <a href="{{ route('requests.my') }}" class="btn btn-outline-secondary btn-sm ms-2">Permintaan Saya</a>
+                    @endif
+                </div>
+            @endif
             <form method="POST" action="{{route('logout')}}">
                 @csrf
                     <a href="{{ route('logout') }}"

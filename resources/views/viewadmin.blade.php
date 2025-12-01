@@ -25,6 +25,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('viewall')}}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('viewbarang')}}">Add Product</a></li>
+                @if (Route::has('requests.index'))
+                    <li class="nav-item"><a class="nav-link" href="{{ route('requests.index') }}">Permintaan Barang</a></li>
+                @endif
                 
             </ul>
             <form method="POST" action="{{route('logout')}}">

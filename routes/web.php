@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,11 @@ Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middlewar
     Route::controller(BarangController::class)->group(function () {
         Route::get('/viewuser', 'view')->name('viewall');
     });
+    Route::controller(RequestController::class)->group(function () {
+        Route::get('/requests/create', 'create')->name('requests.create');
+        Route::post('/requests', 'store')->name('requests.store');
+        Route::get('/requests/my', 'myRequests')->name('requests.my');
+    });
 });
 
 Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\AdminOnly::class])->group(function () {
@@ -56,6 +62,11 @@ Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middlewar
             Route::get('/editbarang/{id}', 'editform')->name('editform');
             Route::patch('/edited/{id}', 'edit')->name('edited');
             Route::delete('/delete/{id}', 'delete')->name('delete');
+        });
+        Route::controller(RequestController::class)->group(function () {
+            Route::get('/requests', 'indexAdmin')->name('requests.index');
+            Route::post('/requests/{id}/approve', 'approve')->name('requests.approve');
+            Route::post('/requests/{id}/reject', 'reject')->name('requests.reject');
         });
         Route::controller(CategoryController::class)->group(function () {
             Route::get('/categories', 'index')->name('categories.index');
