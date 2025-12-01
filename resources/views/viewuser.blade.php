@@ -52,20 +52,28 @@
             @foreach ($semuabarang as $thing)
             <div class="col mb-5">
                 <div class="card h-100">
-                    <img src="{{asset('storage/fotobarang/'.$thing->fotobarang)}}" alt="" class="card-img-top" alt="...">
+                    @php
+                        $img = $thing->fotobarang
+                            ? asset('fotobarang/'.$thing->fotobarang)
+                            : 'https://via.placeholder.com/300x200?text=No+Image';
+                    @endphp
+                    <img src="{{ $img }}" alt="foto {{ $thing->namabarang }}" class="card-img-top">
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <p  class="fw-light">
-                            {{$thing->kategoribarang}}
+                            <p class="text-muted mb-1">ID: {{ $thing->id }}</p>
+                            <h5 class="fw-bolder mb-1">{{ $thing->namabarang }}</h5>
+                            <p class="mb-1">Kategori: {{ $thing->category->name ?? '-' }}</p>
+                            <p class="mb-1">
+                                Supplier: {{ $thing->supplier->name ?? '-' }}
+                                @if(!empty($thing->supplier?->contact))
+                                    <br><small class="text-muted">Kontak: {{ $thing->supplier->contact }}</small>
+                                @endif
+                                @if(!empty($thing->supplier?->address))
+                                    <br><small class="text-muted">Alamat: {{ $thing->supplier->address }}</small>
+                                @endif
                             </p>
-                            <p>
-                            <h5 class="fw-bolder">
-                            {{$thing->namabarang}}
-                            </h5>
-                            </p>
-                            <p>Rp.{{$thing->hargabarang}} </p>
-                            <p>{{$thing->jumlahbarang}} pcs</p>
-                            
+                            <p class="mb-1">Rp.{{ number_format($thing->hargabarang, 0, ',', '.') }}</p>
+                            <p class="mb-0">{{ $thing->jumlahbarang }} pcs</p>
                         </div>
                     </div>
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
