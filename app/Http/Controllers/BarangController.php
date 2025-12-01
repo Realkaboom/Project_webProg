@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\barang;
 use App\Models\category;
 use App\Models\supplier;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -32,11 +33,11 @@ class BarangController extends Controller
 
         $image_name = null;
         if($request->hasFile('fotobarang')){
-            $image_path = 'public/fotobarang';
             $image = $request->file('fotobarang');
             $image_name = str::random(5).'_'.$image->getClientOriginalName();
-            $image->storeAs($image_path, $image_name);
-            //$path = $request->file('fotobarang')->storeAs($image_path, $image_name);
+            $destination = public_path('fotobarang');
+            File::ensureDirectoryExists($destination);
+            $image->move($destination, $image_name);
         }
 
         barang::create([
@@ -84,12 +85,17 @@ class BarangController extends Controller
         ]);
 
         if($request->hasFile('fotobarang')){
-            $image_path = 'public/fotobarang';
-            Storage::delete($image_path.$thing);
-
+            if ($thing->fotobarang) {
+                $oldPath = public_path('fotobarang/'.$thing->fotobarang);
+                if (File::exists($oldPath)) {
+                    File::delete($oldPath);
+                }
+            }
             $image = $request->file('fotobarang');
             $image_name = str::random(5).'_'.$image->getClientOriginalName();
-            $image->storeAs($image_path, $image_name);
+            $destination = public_path('fotobarang');
+            File::ensureDirectoryExists($destination);
+            $image->move($destination, $image_name);
         } else {
             $image_name = $thing->fotobarang;
         }

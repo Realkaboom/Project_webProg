@@ -11,10 +11,6 @@
             <label>Nama</label>
             <input type="text" name="name" value="{{ old('name') }}">
         </div>
-        <div>
-            <label>Deskripsi</label>
-            <textarea name="description">{{ old('description') }}</textarea>
-        </div>
         <button type="submit">Simpan</button>
     </form>
     <a href="{{ route('categories.index') }}">Kembali</a>

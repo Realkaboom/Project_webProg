@@ -54,7 +54,7 @@
                 <div class="card h-100">
                     @php
                         $img = $thing->fotobarang
-                            ? asset('storage/fotobarang/'.$thing->fotobarang)
+                            ? asset('fotobarang/'.$thing->fotobarang)
                             : 'https://via.placeholder.com/300x200?text=No+Image';
                     @endphp
                     <img src="{{ $img }}" alt="foto {{ $thing->namabarang }}" class="card-img-top">

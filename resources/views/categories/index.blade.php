@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Daftar Kategori</title>
 </head>
+
 <body>
     <h1>Daftar Kategori</h1>
     <a href="{{ route('categories.create') }}">Tambah Kategori</a>
     <ul>
-        @foreach($categories as $cat)
+        @foreach ($categories as $cat)
             <li>
                 <strong>{{ $cat->name }}</strong> - {{ $cat->description }}
                 <a href="{{ route('categories.show', $cat->id) }}">Detail</a>
@@ -21,4 +23,5 @@
         @endforeach
     </ul>
 </body>
+
 </html>
