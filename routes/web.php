@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\RequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,10 @@ Route::post('/logout', [UserController::class, 'Logout'])
 Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\WorkerOnly::class])->group(function () {
     Route::controller(BarangController::class)->group(function () {
         Route::get('/viewuser', 'view')->name('viewall');
+    });
+    Route::controller(RequestController::class)->group(function () {
+        Route::get('/requests/create', 'create')->name('requests.create');
+        Route::post('/requests', 'store')->name('requests.store');
     });
 });
 
