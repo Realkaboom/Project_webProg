@@ -84,6 +84,9 @@
                         </div>
                     </div>
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a href="{{ route('requests.create') }}" class="btn btn-outline-primary btn-sm">Minta Barang</a>
+                        </div>
                     </div>
                 </div>
             </div>

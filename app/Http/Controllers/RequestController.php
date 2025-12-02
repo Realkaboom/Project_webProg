@@ -15,6 +15,7 @@ class RequestController extends Controller
         return view('requests.create', compact('barangs'));
     }
 
+<<<<<<< HEAD
     public function indexAdmin()
     {
         $requests = RequestData::with(['barang', 'user'])->orderByDesc('created_at')->get();
@@ -31,6 +32,8 @@ class RequestController extends Controller
         return view('requests.my_requests', compact('requests'));
     }
 
+=======
+>>>>>>> BACKUP2
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -57,6 +60,7 @@ class RequestController extends Controller
 
         return redirect()->route('viewall')->with('success', 'Permintaan disimpan (pending).');
     }
+<<<<<<< HEAD
 
     public function approve($id)
     {
@@ -90,4 +94,6 @@ class RequestController extends Controller
 
         return back()->with('success', 'Permintaan ditolak.');
     }
+=======
+>>>>>>> BACKUP2
 }
