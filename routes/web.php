@@ -46,10 +46,9 @@ Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middlewar
     Route::controller(RequestController::class)->group(function () {
         Route::get('/requests/create', 'create')->name('requests.create');
         Route::post('/requests', 'store')->name('requests.store');
-<<<<<<< HEAD
+
         Route::get('/requests/my', 'myRequests')->name('requests.my');
-=======
->>>>>>> BACKUP2
+
     });
 });
 
