@@ -42,6 +42,7 @@ Route::post('/logout', [UserController::class, 'Logout'])
 Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middleware\WorkerOnly::class])->group(function () {
     Route::controller(BarangController::class)->group(function () {
         Route::get('/viewuser', 'view')->name('viewall');
+        Route::get('/barang-user', 'viewUserBarang')->name('user.barang');
     });
     Route::controller(RequestController::class)->group(function () {
         Route::get('/requests/create', 'create')->name('requests.create');
@@ -59,7 +60,7 @@ Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middlewar
 
     Route::prefix('admin')->group(function () {
         Route::controller(BarangController::class)->group(function () {
-            Route::get('/home', 'viewcreatebarang')->name('viewbarang');
+            Route::get('/barang', 'viewcreatebarang')->name('viewbarang');
             Route::post('/barangcreated', 'createbarang')->name('create');
             Route::get('/editbarang/{id}', 'editform')->name('editform');
             Route::patch('/edited/{id}', 'edit')->name('edited');

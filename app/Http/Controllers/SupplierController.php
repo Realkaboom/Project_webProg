@@ -15,7 +15,7 @@ class SupplierController extends Controller
 
     public function create()
     {
-        return view('suppliers.create');
+        return redirect()->route('suppliers.index');
     }
 
     public function store(Request $request)

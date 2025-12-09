@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
         $barangs = barang::with(['category', 'supplier'])->get();
-        return view('requests.create', compact('barangs'));
+        $selectedBarangId = $request->query('barang_id');
+        return view('requests.create', compact('barangs', 'selectedBarangId'));
     }
 
     public function indexAdmin()

@@ -17,7 +17,12 @@ class BarangController extends Controller
     public function viewcreatebarang(){
         $categories = category::all();
         $suppliers = supplier::all();
-        return view('home', compact('categories', 'suppliers'));
+        $things = barang::with(['category', 'supplier'])->orderByDesc('id')->get();
+        return view('barang', [
+            'categories' => $categories,
+            'suppliers' => $suppliers,
+            'semuabarang' => $things,
+        ]);
     }
     
     public function createbarang(request $request){
@@ -54,6 +59,11 @@ class BarangController extends Controller
     public function view(){
         $thing = barang::with(['category', 'supplier'])->get();
         return view('viewuser')->with('semuabarang', $thing);
+    }
+
+    public function viewUserBarang(){
+        $things = barang::with(['category', 'supplier'])->get();
+        return view('userbarang')->with('semuabarang', $things);
     }
 
     public function viewadmin(){
