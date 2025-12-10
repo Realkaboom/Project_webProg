@@ -38,6 +38,11 @@ class RequestController extends Controller
             'barang_id' => 'required|integer|exists:barangs,id',
             'quantity' => 'required|integer|min:1',
             'note' => 'nullable|string',
+        ], [
+            'barang_id.required' => 'Pilih barang terlebih dahulu.',
+            'barang_id.exists' => 'Barang tidak ditemukan.',
+            'quantity.required' => 'Jumlah wajib diisi.',
+            'quantity.min' => 'Jumlah minimal 1.',
         ]);
 
         $barang = barang::findOrFail($data['barang_id']);

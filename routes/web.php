@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -90,3 +90,4 @@ Route::middleware([\App\Http\Middleware\Authenticate::class, \App\Http\Middlewar
         });
     });
 });
+

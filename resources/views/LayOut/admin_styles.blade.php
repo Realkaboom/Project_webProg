@@ -5,9 +5,13 @@
         --muted: #6c7a91;
     }
     body {
+        margin: 0;
         background: #eef1f5;
         font-family: 'Figtree', sans-serif;
     }
+    body, html { height: 100%; }
+    .navbar { margin-bottom: 0; }
+    .main-wrapper { margin-top: 0; padding-top: 0; }
     .app-shell { min-height: 100vh; }
     .main-wrapper { overflow-x: hidden; }
     .main-content { flex: 1; min-width: 0; padding: 1.5rem; }
@@ -81,6 +85,8 @@
         border-radius: 10px;
         border: 1px solid #e6e9ef;
     }
+    .btn-edit-sm { padding: 0.3rem 0.65rem; }
+    .btn-delete-sm { padding: 0.3rem 0.65rem; }
     @media (max-width: 991px) {
         .app-shell { flex-direction: column; }
         .sidebar {
@@ -90,5 +96,6 @@
             box-shadow: none;
         }
         .main-content { padding: 1rem; }
+        .main-wrapper { padding-top: 76px; }
     }
 </style>

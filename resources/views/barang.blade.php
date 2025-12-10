@@ -139,11 +139,11 @@
                                     <td class="text-center fw-semibold">{{ $item->jumlahbarang }} pcs</td>
                                     <td class="text-end">
                                         <div class="btn-group">
-                                            <a href="{{ route('editform', ['id' => $item->id]) }}" class="btn btn-outline-secondary btn-sm">Edit</a>
-                                            <form method="POST" action="{{ route('delete', ['id' => $item->id]) }}">
+                                            <a href="{{ route('editform', ['id' => $item->id]) }}" class="btn btn-outline-primary btn-sm px-3">Edit</a>
+                                            <form method="POST" action="{{ route('delete', ['id' => $item->id]) }}" class="mb-0 d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                                <button class="btn btn-outline-danger btn-sm px-3">Delete</button>
                                             </form>
                                         </div>
                                     </td>

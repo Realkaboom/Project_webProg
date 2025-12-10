@@ -95,11 +95,11 @@
                                                 <div class="fw-semibold">Rp{{ number_format($item->hargabarang, 0, ',', '.') }} - {{ $item->jumlahbarang }} pcs</div>
                                             </div>
                                             <div class="btn-group">
-                                                <a href="{{ route('editform', ['id' => $item->id]) }}" class="btn btn-outline-secondary btn-sm">Edit</a>
-                                                <form method="POST" action="{{ route('delete', ['id' => $item->id]) }}">
+                                                <a href="{{ route('editform', ['id' => $item->id]) }}" class="btn btn-outline-secondary btn-sm btn-edit-sm">Edit</a>
+                                                <form method="POST" action="{{ route('delete', ['id' => $item->id]) }}" class="mb-0 d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                                    <button class="btn btn-outline-danger btn-sm btn-delete-sm">Delete</button>
                                                 </form>
                                             </div>
                                         </div>

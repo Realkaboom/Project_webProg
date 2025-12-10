@@ -45,14 +45,4 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminOnly::class,
         'worker' => \App\Http\Middleware\WorkerOnly::class,
     ];
-
-    /**
-     * Fallback untuk alias middleware (beberapa versi masih membaca routeMiddleware).
-     */
-    protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'guest' => \App\Http\Middleware\RedirectIfLoggedIn::class,
-        'admin' => \App\Http\Middleware\AdminOnly::class,
-        'worker' => \App\Http\Middleware\WorkerOnly::class,
-    ];
 }
