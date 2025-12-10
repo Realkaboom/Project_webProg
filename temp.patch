@@ -1,0 +1,8 @@
+*** Update File: resources/views/viewuser.blade.php
+@@
+-                                        <div class="fw-semibold">@rupiah($item->hargabarang) f @pcs($item->jumlahbarang)</div>
++                                        <div class="fw-semibold">Rp{{ number_format($item->hargabarang, 0, ',', '.') }} f {{ $item->jumlahbarang }} pcs</div>
+@@
+-                                    <td class="text-center fw-semibold">@pcs($alert->jumlahbarang)</td>
++                                    <td class="text-center fw-semibold">{{ $alert->jumlahbarang }} pcs</td>
+*** End Patch

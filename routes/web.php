@@ -27,7 +27,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::controller(UserController::class)->middleware('guest')->group(function () {
     Route::get('/register-form', 'registerform')->name('register');
     Route::post('/registered', 'create')->name('registered');
