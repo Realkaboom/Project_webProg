@@ -14,10 +14,10 @@
 <div class="d-flex app-shell">
     @include('LayOut.admin_sidebar')
     <main class="main-content">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between mb-3">
             <div>
-                <h4 class="fw-bold mb-1">Permintaan Barang</h4>
-                <p class="text-muted mb-0">Review, approve, atau reject permintaan yang masuk.</p>
+                <h4 class="mb-1 fw-bold">Permintaan Barang</h4>
+                <p class="mb-0 text-muted">Review, approve, atau reject permintaan yang masuk.</p>
             </div>
         </div>
 
@@ -36,10 +36,10 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
                     <div>
-                        <h6 class="fw-bold mb-1">Daftar Permintaan</h6>
-                        <p class="text-muted mb-0">{{ count($requests) }} permintaan tercatat.</p>
+                        <h6 class="mb-1 fw-bold">Daftar Permintaan</h6>
+                        <p class="mb-0 text-muted">{{ count($requests) }} permintaan tercatat.</p>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -94,7 +94,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="text-center text-muted py-4">Belum ada permintaan.</td>
+                                    <td colspan="6" class="py-4 text-muted text-center">Belum ada permintaan.</td>
                                 </tr>
                             @endforelse
                         </tbody>

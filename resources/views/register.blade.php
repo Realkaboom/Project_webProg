@@ -52,11 +52,11 @@
 </head>
 
 <body>
-    <div class="container py-5 py-md-5">
-        <div class="row justify-content-center">
+    <div class="py-5 py-md-5 container">
+        <div class="justify-content-center row">
             <div class="col-lg-10 col-xl-9">
-                <div class="hero-card p-4 p-md-5">
-                    <h3 class="fw-bold mb-3">Register</h3>
+                <div class="p-4 p-md-5 hero-card">
+                    <h3 class="mb-3 fw-bold">Register</h3>
                     <p class="mb-4 helper-text">
                         Manage all your inventory efficiently.<br>
                         Let's get you set up so you can verify your account and begin.
@@ -76,7 +76,7 @@
 
                     <form action="{{ route('registered') }}" method="POST" novalidate>
                         @csrf
-                        <div class="row g-3 mb-3">
+                        <div class="mb-3 row g-3">
                             <div class="col-md-6">
                                 <label class="form-label" for="nama">Name</label>
                                 <input type="text" class="form-control input-large" id="nama" name="nama"
@@ -90,14 +90,14 @@
                                     title="Hanya masukkan angka, spasi, tanda + atau - (8-15 karakter)">
                             </div>
                         </div>
-                        <div class="row g-3 mb-3">
+                        <div class="mb-3 row g-3">
                             <div class="col-12">
                                 <label class="form-label" for="email">Email</label>
                                 <input type="email" class="form-control input-large" id="email" name="email"
                                     placeholder="Enter your email" required>
                             </div>
                         </div>
-                        <div class="row g-3 mb-4">
+                        <div class="mb-4 row g-3">
                             <div class="col-12">
                                 <label class="form-label" for="password">Password</label>
                                 <input type="password" class="form-control input-large" id="password" name="password"
@@ -105,7 +105,7 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <button type="submit" class="btn btn-dark-blue w-100">Sign up</button>
+                            <button type="submit" class="w-100 btn btn-dark-blue">Sign up</button>
                         </div>
                         <div class="text-muted">
                             Already have an account? <a href="{{ route('login') }}">Log in</a>

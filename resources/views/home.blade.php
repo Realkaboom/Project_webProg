@@ -20,8 +20,8 @@
         </style>
     </head>
     <body>
-        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-        
+        <div class="d-flex align-items-center justify-content-center container min-vh-100">
+
         <form method="POST" action="{{route('create')}}" class="content" enctype="multipart/form-data">
             @csrf
             @if ($errors->any())
@@ -42,7 +42,7 @@
                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                     @endforeach
                 </select>
-                <a class="btn btn-outline-primary ms-2" href="{{ route('categories.create') }}">+ Kategori</a>
+                <a class="ms-2 btn-outline-primary btn" href="{{ route('categories.create') }}">+ Kategori</a>
             </div>
 
             <div class="input-group mb-3">
@@ -53,14 +53,14 @@
                         <option value="{{ $sup->id }}">{{ $sup->name }}</option>
                     @endforeach
                 </select>
-                <a class="btn btn-outline-primary ms-2" href="{{ route('suppliers.create') }}">+ Supplier</a>
+                <a class="ms-2 btn-outline-primary btn" href="{{ route('suppliers.create') }}">+ Supplier</a>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">nama barang</span>
                 <input type="text" class="form-control" aria-label="Sizing example input" name="namabarang" aria-describedby="inputGroup-sizing-default">
             </div>
-    
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">harga barang (Rp.)</span>
                 <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="hargabarang">
@@ -70,13 +70,13 @@
                 <span class="input-group-text" id="inputGroup-sizing-default">jumlah barang</span>
                 <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="jumlahbarang">
             </div>
-    
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">foto barang</span>
                 <input type="file" class="form-control" name="fotobarang">
             </div>
-    
-            <button type="submit" class="btn btn-outline-success">Submit</button>  
+
+            <button type="submit" class="btn-outline-success btn">Submit</button>
         </form>
         </div>
     </body>

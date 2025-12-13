@@ -18,12 +18,12 @@
 <div class="d-flex app-shell">
         @include('LayOut.user_sidebar')
     <main class="flex-grow-1 p-4">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between mb-3">
             <div>
-                <h4 class="fw-bold mb-1">Buat Permintaan</h4>
-                <p class="text-muted mb-0">Pilih barang, isi jumlah, dan berikan catatan jika diperlukan.</p>
+                <h4 class="mb-1 fw-bold">Buat Permintaan</h4>
+                <p class="mb-0 text-muted">Pilih barang, isi jumlah, dan berikan catatan jika diperlukan.</p>
             </div>
-            <a href="{{ route('requests.my') }}" class="btn btn-outline-secondary mt-3 mt-lg-0">Lihat Riwayat</a>
+            <a href="{{ route('requests.my') }}" class="mt-3 mt-lg-0 btn-outline-secondary btn">Lihat Riwayat</a>
         </div>
 
         @if ($errors->any())
@@ -61,7 +61,7 @@
                     </div>
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">Kirim Permintaan</button>
-                        <a href="{{ route('viewall') }}" class="btn btn-outline-secondary">Batal</a>
+                        <a href="{{ route('viewall') }}" class="btn-outline-secondary btn">Batal</a>
                     </div>
                 </form>
             </div>

@@ -17,7 +17,7 @@
         </style>
     </head>
     <body>
-        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="d-flex align-items-center justify-content-center container min-vh-100">
             <form>
               <label class="form-label">Admin</label>
                 <div class="mb-3">
@@ -45,8 +45,8 @@
                       pattern="^[0-9+\s-]{8,15}$"
                       title="Hanya masukkan angka, spasi, tanda + atau - (8-15 karakter)">
                 </div>
-                <div class="d-grid gap-2 col-4 mx-auto">
-                    <a href="{{route('login')}}"><button type="button" class="btn btn-outline-primary">Login</button></a>
+                <div class="gap-2 d-grid mx-auto col-4">
+                    <a href="{{route('login')}}"><button type="button" class="btn-outline-primary btn">Login</button></a>
                 </div>
               </form>
         </div>

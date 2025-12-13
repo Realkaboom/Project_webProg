@@ -20,18 +20,18 @@
 <div class="d-flex app-shell">
     @include('LayOut.admin_sidebar')
     <main class="main-content">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between mb-3">
             <div>
-                <h4 class="fw-bold mb-1">Barang</h4>
-                <p class="text-muted mb-0">Lihat semua barang dan tambah dari halaman ini.</p>
+                <h4 class="mb-1 fw-bold">Barang</h4>
+                <p class="mb-0 text-muted">Lihat semua barang dan tambah dari halaman ini.</p>
             </div>
-            <a class="btn btn-primary mt-3 mt-lg-0" data-bs-toggle="collapse" href="#addBarang" role="button" aria-expanded="true" aria-controls="addBarang">Tambah Barang</a>
+            <a class="mt-3 mt-lg-0 btn btn-primary" data-bs-toggle="collapse" href="#addBarang" role="button" aria-expanded="true" aria-controls="addBarang">Tambah Barang</a>
         </div>
 
         <div class="collapse show" id="addBarang">
-            <div class="card mb-4">
+            <div class="mb-4 card">
                 <div class="card-body">
-                    <h6 class="fw-bold mb-3">Form Tambah Barang</h6>
+                    <h6 class="mb-3 fw-bold">Form Tambah Barang</h6>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul class="mb-0">
@@ -53,7 +53,7 @@
                                             <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                         @endforeach
                                     </select>
-                                    <a class="btn btn-outline-primary" href="{{ route('categories.create') }}">+</a>
+                                    <a class="btn-outline-primary btn" href="{{ route('categories.create') }}">+</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -65,7 +65,7 @@
                                             <option value="{{ $sup->id }}">{{ $sup->name }}</option>
                                         @endforeach
                                     </select>
-                                    <a class="btn btn-outline-primary" href="{{ route('suppliers.create') }}">+</a>
+                                    <a class="btn-outline-primary btn" href="{{ route('suppliers.create') }}">+</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -85,9 +85,9 @@
                                 <input type="file" class="form-control" name="fotobarang" accept="image/*">
                             </div>
                         </div>
-                        <div class="mt-3 d-flex gap-2">
+                        <div class="d-flex gap-2 mt-3">
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#addBarang">Tutup</button>
+                            <button type="button" class="btn-outline-secondary btn" data-bs-toggle="collapse" data-bs-target="#addBarang">Tutup</button>
                         </div>
                     </form>
                 </div>
@@ -96,10 +96,10 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
                     <div>
-                        <h6 class="fw-bold mb-1">Semua Barang</h6>
-                        <p class="text-muted mb-0">Daftar lengkap barang yang sudah dibuat.</p>
+                        <h6 class="mb-1 fw-bold">Semua Barang</h6>
+                        <p class="mb-0 text-muted">Daftar lengkap barang yang sudah dibuat.</p>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -139,18 +139,18 @@
                                     <td class="text-center fw-semibold">{{ $item->jumlahbarang }} pcs</td>
                                     <td class="text-end">
                                         <div class="btn-group">
-                                            <a href="{{ route('editform', ['id' => $item->id]) }}" class="btn btn-outline-primary btn-sm px-3">Edit</a>
-                                            <form method="POST" action="{{ route('delete', ['id' => $item->id]) }}" class="mb-0 d-inline">
+                                            <a href="{{ route('editform', ['id' => $item->id]) }}" class="px-3 btn-outline-primary btn btn-sm">Edit</a>
+                                            <form method="POST" action="{{ route('delete', ['id' => $item->id]) }}" class="d-inline mb-0">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-outline-danger btn-sm px-3">Delete</button>
+                                                <button class="px-3 btn-outline-danger btn btn-sm">Delete</button>
                                             </form>
                                         </div>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7" class="text-center text-muted py-4">Belum ada barang yang tercatat.</td>
+                                    <td colspan="7" class="py-4 text-muted text-center">Belum ada barang yang tercatat.</td>
                                 </tr>
                             @endforelse
                         </tbody>

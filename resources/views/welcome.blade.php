@@ -65,13 +65,13 @@
 </head>
 
 <body>
-    <div class="container px-3 py-5">
-        <div class="text-center mb-4 text-white">
+    <div class="px-3 py-5 container">
+        <div class="mb-4 text-white text-center">
             <h2 class="fw-bold brand-title">Warehouse.in</h2>
         </div>
-        <div class="card auth-card mx-auto">
-            <div class="card-body p-4 p-md-5">
-                <h4 class="text-center fw-bold mb-4">USER LOGIN</h4>
+        <div class="mx-auto card auth-card">
+            <div class="p-4 p-md-5 card-body">
+                <h4 class="mb-4 text-center fw-bold">USER LOGIN</h4>
 
                 @if ($errors->any())
                     <div class="alert alert-danger" role="alert">
@@ -87,20 +87,20 @@
 
                 <form action="{{ route('logedin') }}" method="POST" novalidate>
                     @csrf
-                    <div class="mb-3 position-relative">
+                    <div class="position-relative mb-3">
                         <span class="input-icon"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control with-icon" name="email" placeholder="Username"
+                        <input type="text" class="form-control with-icon" name="email" placeholder="Email"
                             required>
                     </div>
-                    <div class="mb-3 position-relative">
+                    <div class="position-relative mb-3">
                         <span class="input-icon"><i class="bi bi-lock"></i></span>
                         <input type="password" class="form-control with-icon" name="password" placeholder="Password"
                             required>
                     </div>
                     <div class="d-grid mb-3">
-                        <button type="submit" class="btn btn-dark py-2 fw-semibold">Login</button>
+                        <button type="submit" class="py-2 btn btn-dark fw-semibold">Login</button>
                     </div>
-                    <div class="text-center mb-3 divider">OR</div>
+                    <div class="mb-3 text-center divider">OR</div>
                     <div class="text-center">
                         <span class="text-muted">Don't have an account?</span>
                         <a href="{{ route('register') }}">Sign up here.</a>

@@ -22,59 +22,19 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
-    <div class="container-fluid px-4">
-        <a class="navbar-brand fw-bold text-dark" href="{{ route('viewadmin') }}">Inventaris Admin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="topNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link" href="{{ route('viewadmin') }}">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('viewbarang') }}">Barang</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{{ route('categories.create') }}">Kategori</a></li>
-                @if (Route::has('requests.index'))
-                    <li class="nav-item"><a class="nav-link" href="{{ route('requests.index') }}">Permintaan</a></li>
-                @endif
-            </ul>
-            <div class="d-flex align-items-center gap-3">
-                <div class="text-end small text-muted">
-                    <div class="fw-semibold text-dark">{{ Auth::user()->name ?? 'Admin' }}</div>
-                    <div>Kategori</div>
-                </div>
-                <form method="POST" action="{{ route('logout') }}" class="mb-0">
-                    @csrf
-                    <button class="btn btn-outline-secondary btn-sm">Log Out</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
+@include('lay-out.admin-nav')
 <div class="d-flex app-shell">
-    <aside class="sidebar p-3 d-none d-md-block">
-        <div class="d-flex align-items-center mb-4 text-white">
-            <div class="fw-bold fs-4 lh-1 me-2">≡</div>
-            <span class="fw-semibold">Menu</span>
-        </div>
-        <nav class="nav flex-column gap-1">
-            <a class="nav-link" href="{{ route('viewadmin') }}">Dashboard</a>
-            <a class="nav-link" href="{{ route('viewbarang') }}">Barang</a>
-            <a class="nav-link active" href="{{ route('categories.create') }}">Kategori & Supplier</a>
-            @if (Route::has('requests.index'))
-                <a class="nav-link" href="{{ route('requests.index') }}">Permintaan</a>
-            @endif
-        </nav>
-    </aside>
+    @include('LayOut.admin_sidebar')
     <main class="flex-grow-1 p-4">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between mb-3">
             <div>
-                <h4 class="fw-bold mb-1">Tambah Kategori</h4>
-                <p class="text-muted mb-0">Buat kategori baru untuk mengelompokkan barang.</p>
+                <h4 class="mb-1 fw-bold">Tambah Kategori</h4>
+                <p class="mb-0 text-muted">Buat kategori baru untuk mengelompokkan barang.</p>
             </div>
-            <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary mt-3 mt-lg-0">Kembali ke daftar</a>
+            <a href="{{ route('categories.index') }}" class="mt-3 mt-lg-0 btn-outline-secondary btn">Kembali ke daftar</a>
         </div>
         <div class="card">
-            <div class="card-body p-4">
+            <div class="p-4 card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
@@ -92,7 +52,7 @@
                     </div>
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary">Batal</a>
+                        <a href="{{ route('categories.index') }}" class="btn-outline-secondary btn">Batal</a>
                     </div>
                 </form>
             </div>

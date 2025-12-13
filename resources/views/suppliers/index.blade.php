@@ -14,20 +14,20 @@
 <div class="d-flex app-shell">
     @include('LayOut.admin_sidebar')
     <main class="main-content">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between mb-3">
             <div>
-                <h4 class="fw-bold mb-1">Supplier</h4>
-                <p class="text-muted mb-0">Kelola daftar supplier dan tambah data baru.</p>
+                <h4 class="mb-1 fw-bold">Supplier</h4>
+                <p class="mb-0 text-muted">Kelola daftar supplier dan tambah data baru.</p>
             </div>
         </div>
         <div class="row g-4">
             <div class="col-lg-7">
-                <div class="card h-100">
+                <div class="h-100 card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
                             <div>
-                                <h6 class="fw-bold mb-1">Daftar Supplier</h6>
-                                <p class="text-muted mb-0">{{ count($suppliers) }} supplier terdaftar.</p>
+                                <h6 class="mb-1 fw-bold">Daftar Supplier</h6>
+                                <p class="mb-0 text-muted">{{ count($suppliers) }} supplier terdaftar.</p>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -50,18 +50,20 @@
                                             <td>{{ $sup->address }}</td>
                                             <td class="text-end">
                                                 <div class="btn-group">
-                                                    <a href="{{ route('suppliers.edit', $sup->id) }}" class="btn btn-outline-secondary btn-sm">Edit</a>
                                                     <form action="{{ route('suppliers.destroy', $sup->id) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button type="submit" class="btn btn-outline-danger btn-sm">Hapus</button>
+                                                        <div class="d-flex gap-2">
+                                                            <a href="{{ route('suppliers.edit', $sup->id) }}" class="btn-outline-secondary btn btn-sm">Edit</a>
+                                                            <button type="submit" class="btn-outline-danger btn btn-sm">Hapus</button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="5" class="text-center text-muted py-4">Belum ada supplier.</td>
+                                            <td colspan="5" class="py-4 text-muted text-center">Belum ada supplier.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -71,9 +73,9 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="card h-100">
+                <div class="h-100 card">
                     <div class="card-body">
-                        <h6 class="fw-bold mb-3">Tambah Supplier</h6>
+                        <h6 class="mb-3 fw-bold">Tambah Supplier</h6>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul class="mb-0">
@@ -99,7 +101,7 @@
                             </div>
                             <div class="d-flex gap-2">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
-                                <a href="{{ route('suppliers.index') }}" class="btn btn-outline-secondary">Bersihkan</a>
+                                <a href="{{ route('suppliers.index') }}" class="btn-outline-secondary btn">Bersihkan</a>
                             </div>
                         </form>
                     </div>

@@ -18,10 +18,10 @@
 <div class="d-flex app-shell">
         @include('LayOut.user_sidebar')
     <main class="main-content">
-        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3">
+        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between mb-3">
             <div>
-                <h4 class="fw-bold mb-1">Riwayat permintaan</h4>
-                <p class="text-muted mb-0">Riwayat permintaan barang yang sudah kamu buat.</p>
+                <h4 class="mb-1 fw-bold">Riwayat permintaan</h4>
+                <p class="mb-0 text-muted">Riwayat permintaan barang yang sudah kamu buat.</p>
             </div>
         </div>
 
@@ -40,10 +40,10 @@
 
         <div class="card">
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
                     <div>
-                        <h6 class="fw-bold mb-1">Daftar Permintaan</h6>
-                        <p class="text-muted mb-0">{{ count($requests) }} permintaan tercatat.</p>
+                        <h6 class="mb-1 fw-bold">Daftar Permintaan</h6>
+                        <p class="mb-0 text-muted">{{ count($requests) }} permintaan tercatat.</p>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -81,7 +81,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5" class="text-center text-muted py-4">Belum ada permintaan.</td>
+                                    <td colspan="5" class="py-4 text-muted text-center">Belum ada permintaan.</td>
                                 </tr>
                             @endforelse
                         </tbody>

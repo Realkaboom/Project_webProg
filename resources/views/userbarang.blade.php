@@ -25,10 +25,10 @@
         <main class="main-content">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
                         <div>
-                            <h5 class="fw-bold mb-1">Semua Barang</h5>
-                            <p class="text-muted mb-0">Lihat seluruh barang yang tersedia.</p>
+                            <h5 class="mb-1 fw-bold">Semua Barang</h5>
+                            <p class="mb-0 text-muted">Lihat seluruh barang yang tersedia.</p>
                         </div>
                 </div>
                 <div class="table-responsive">
@@ -73,13 +73,13 @@
                                         @if (Route::has('requests.create'))
                                             <td class="text-end">
                                                 <a href="{{ route('requests.create', ['barang_id' => $item->id]) }}"
-                                                    class="btn btn-outline-primary btn-sm">Ajukan</a>
+                                                    class="btn-outline-primary btn btn-sm">Ajukan</a>
                                             </td>
                                         @endif
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="7" class="text-center text-muted py-4">Belum ada barang yang
+                                        <td colspan="7" class="py-4 text-muted text-center">Belum ada barang yang
                                             tercatat.</td>
                                     </tr>
                                 @endforelse
