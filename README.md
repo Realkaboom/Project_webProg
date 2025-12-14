@@ -6,10 +6,6 @@
 2702262021 - Rakrayan Yahyatama Nasution  
 2702326832 - Vincent  
 
-## Deskripsi
-Warehouse.in adalah aplikasi berbasis web untuk mengelola data gudang.  
-Aplikasi ini menggunakan PHP dan database sebagai media penyimpanan data.
-
 ## Panduan Instalasi dan Penggunaan
 
 ### Langkah Instalasi
