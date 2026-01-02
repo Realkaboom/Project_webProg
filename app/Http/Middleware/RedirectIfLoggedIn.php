@@ -9,9 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfLoggedIn
 {
-    /**
-     * Jika sudah login, arahkan sesuai role.
-     */
     public function handle(Request $request, Closure $next, ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;

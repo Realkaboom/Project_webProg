@@ -9,9 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class WorkerOnly
 {
-    /**
-     * Izinkan hanya worker (isAdmin = false).
-     */
     public function handle(Request $request, Closure $next): Response
     {
         if (! Auth::check()) {

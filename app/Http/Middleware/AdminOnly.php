@@ -9,9 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminOnly
 {
-    /**
-     * Izinkan hanya admin (isAdmin = true).
-     */
     public function handle(Request $request, Closure $next): Response
     {
         if (! Auth::check()) {

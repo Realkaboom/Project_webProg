@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Seed default admin and worker accounts.
-     */
     public function run(): void
     {
         User::updateOrCreate(
