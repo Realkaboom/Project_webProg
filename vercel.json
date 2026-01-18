@@ -22,7 +22,8 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
-        "APP_URL": "https://$VERCEL_URL"
+        "APP_DEBUG": "false",
+        "APP_URL": "https://$VERCEL_URL",
+        "PHP_INI_SCAN_DIR": "/var/task/user"
     }
 }
