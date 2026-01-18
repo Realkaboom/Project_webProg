@@ -1,11 +1,10 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "vercel-php@0.7.2"
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.2"
         }
-    ],
+    },
     "routes": [
         {
             "src": "/fotobarang/(.*)",
@@ -23,7 +22,6 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://$VERCEL_URL",
-        "PHP_INI_SCAN_DIR": "/var/task/user"
+        "APP_URL": "https://$VERCEL_URL"
     }
 }
